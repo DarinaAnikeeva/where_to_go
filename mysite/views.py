@@ -1,28 +1,28 @@
 import json
 import os
+from django.urls import reverse
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 from django.shortcuts import render
 from places.models import Place
 
 def get_object(id):
     place = get_object_or_404(Place, pk=id)
-    return place.title
-
-def places(requests, place):
     place_info = {
-        "title": place.title,
-        "imgs": [image.img.url for image in place.images.all()],
-        "description_short": place.description_short,
-        "description_long": place.description_long,
-        "coordinates": {
-              "lng": place.lng,
-              "lat": place.lat
-        }
+      "title": place.title,
+      "imgs": [image.img.url for image in place.images.all()],
+      "description_short": place.description_short,
+      "description_long": place.description_long,
+      "coordinates": {
+        "lng": place.lng,
+        "lat": place.lat
+      }
     }
-    file_path = os.path.join('static', 'places', f'{place.id}.json')
-    with open(file_path, 'w', encoding='utf8') as json_file:
-        json.dump(place_info, json_file, ensure_ascii=False)
-    return file_path
+    response = JsonResponse(place_info,
+                            safe=False,
+                            json_dumps_params={'ensure_ascii': False,
+                                               'indent': 2})
+    return response
 
 
 def place_info(place):
@@ -35,7 +35,7 @@ def place_info(place):
           "properties": {
             "title": place.title,
             "placeId": place.id,
-            "detailsUrl": places(place)
+            "detailsUrl": reverse('place_info')
           }
     }
 
