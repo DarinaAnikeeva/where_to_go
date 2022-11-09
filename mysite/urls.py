@@ -22,6 +22,6 @@ from mysite import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('places/<int:id>/', views.get_object, name='place_info')
+    path('places/<int:id>/', views.places, name='place_info')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
