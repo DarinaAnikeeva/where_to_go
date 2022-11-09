@@ -2,11 +2,30 @@ from django.db import models
 from tinymce.models import HTMLField
 
 class Place(models.Model):
-  title = models.CharField(max_length=200)
-  description_short = models.TextField(blank=False)
-  description_long = HTMLField(blank=True)
-  lng = models.FloatField(null=False)
-  lat = models.FloatField(null=False)
+  title = models.CharField(
+        verbose_name="Название места",
+        max_length=200
+  )
+
+  description_short = models.TextField(
+        verbose_name="Короткое описание",
+        blank=False
+  )
+
+  description_long = HTMLField(
+        verbose_name="Длинное описание",
+        blank=True
+  )
+
+  lng = models.FloatField(
+        verbose_name="Широта",
+        null=False
+  )
+
+  lat = models.FloatField(
+        verbose_name="Долгота",
+        null=False
+  )
 
   class Meta:
     ordering = ['id']
@@ -17,9 +36,25 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-  place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name="images", blank=True, null=True)
-  img = models.ImageField(blank=False)
-  number_img = models.IntegerField(default=1, blank=True)
+  place = models.ForeignKey(
+        Place,
+        verbose_name="Название места",
+        on_delete=models.CASCADE,
+        related_name="images",
+        blank=True,
+        null=True
+  )
+
+  img = models.ImageField(
+        verbose_name="Изображение",
+        blank=False
+  )
+
+  number_img = models.IntegerField(
+        verbose_name="Номер изображения",
+        default=1,
+        blank=True
+  )
 
   class Meta:
     ordering = ['number_img']
