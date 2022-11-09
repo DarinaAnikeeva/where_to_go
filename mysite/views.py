@@ -1,13 +1,11 @@
-import json
-import os
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.shortcuts import render
 from places.models import Place
 
-def get_object(id):
-    place = get_object_or_404(Place, pk=id)
+def places(requests, id):
+    place = get_object_or_404(Place, pk=int(id))
     place_info = {
       "title": place.title,
       "imgs": [image.img.url for image in place.images.all()],
@@ -35,7 +33,7 @@ def place_info(place):
           "properties": {
             "title": place.title,
             "placeId": place.id,
-            "detailsUrl": reverse('place_info')
+            "detailsUrl": reverse('place_info', args=[place.id])
           }
     }
 
