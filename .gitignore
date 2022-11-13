@@ -128,7 +128,7 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/moscow_map_site
+/moscow_site
 
 # mypy
 .mypy_cache/

@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'moscow_map_site.urls'
+ROOT_URLCONF = 'moscow_site.urls'
 
 TEMPLATES = [
     {
@@ -65,7 +65,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'moscow_map_site.wsgi.application'
+WSGI_APPLICATION = 'moscow_site.wsgi.application'
 
 DATABASES = {
     'default': {
