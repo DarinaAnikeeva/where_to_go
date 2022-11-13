@@ -38,7 +38,7 @@ def place_info(place):
     }
 
 def index(requests):
-    places = Place.objects.all()
+    places = Place.objects.prefetch_related('images')
     context = {
       "places_info": {
           "type": "FeatureCollection",
