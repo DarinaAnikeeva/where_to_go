@@ -26,4 +26,4 @@ class ImageAdmin(admin.ModelAdmin):
 
   def preview(self, obj):
       return format_html(f'<img src="{obj.img.url}" style="max-height: 100px;">')
-# Register your models here.
+
