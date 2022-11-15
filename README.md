@@ -6,21 +6,24 @@
 
 ## Запуск
 
-Для запуска сайта вам понадобится Python 3.10 и выше.
+1. Для запуска сайта вам понадобится Python 3.10 и выше.
 
-Скачайте код с GitHub. Установите зависимости:
+
+2. Скачайте код с GitHub. Установите зависимости:
 
 ```
 pip install -r requirements.txt
 ```
 
-Создайте базу данных SQLite
+
+3. Создайте базу данных SQLite
 
 ```
 python3 manage.py migrate
 ```
 
-Запустите сайт и перейдите по ссылке http://127.0.0.1:8000/
+
+4. Запустите сайт и перейдите по ссылке http://127.0.0.1:8000/
 
 ```
 python3 manage.py runserver
@@ -47,6 +50,7 @@ python3 manage.py runserver
   ```
   На месте (link) должна быть ссылка на json файл с параметрами для точки.
   [Пример файла](https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/places/%D0%92%D0%BE%D0%B4%D0%BE%D0%BF%D0%B0%D0%B4%20%D0%A0%D0%B0%D0%B4%D1%83%D0%B6%D0%BD%D1%8B%D0%B9.json)
+
 
 
 * Создайте суперпользователя командой `python3 manage.py createsuperuser`.
