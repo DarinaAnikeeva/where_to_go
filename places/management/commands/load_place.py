@@ -40,4 +40,4 @@ class Command(BaseCommand):
                       },
             )
         if created:
-            self.dowload_images(place_info, place)
+            self.download_images(place_info, place)
