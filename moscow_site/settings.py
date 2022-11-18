@@ -18,7 +18,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', default="REPLACE_ME")
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG', default='true').lower()
 
@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'places.apps.PlacesConfig',
     'adminsortable2',
-    'tinymce'
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'moscow_site.urls'
@@ -89,7 +89,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 
 LANGUAGE_CODE = 'ru-ru'
