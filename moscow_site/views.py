@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from places.models import Place
 
+
 def places(requests, id):
     place = get_object_or_404(Place, pk=int(id))
     place_info = {
@@ -16,10 +17,12 @@ def places(requests, id):
         "lat": place.lat
       }
     }
-    response = JsonResponse(place_info,
-                            safe=False,
-                            json_dumps_params={'ensure_ascii': False,
-                                               'indent': 2})
+    response = JsonResponse(
+        place_info,
+        safe=False,
+        json_dumps_params={'ensure_ascii': False,
+                           'indent': 2}
+    )
     return response
 
 
@@ -36,6 +39,7 @@ def place_info(place):
             "detailsUrl": reverse('place_info', args=[place.id])
           }
     }
+
 
 def index(requests):
     places = Place.objects.prefetch_related('images')
