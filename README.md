@@ -3,32 +3,19 @@
 Сайт, который поможет найти куда можно сходить в Москве и расскажет о каждом из низ.
 Для разработчиков поможет создать новое место на карте.
 
+Пример работы сайта: http://anikeevadarina.pythonanywhere.com/
+
 
 ## Запуск
 
-1. Для запуска сайта вам понадобится Python 3.10 и выше.
+Для запуска сайта вам понадобится Python 3.10 и выше.
 
 
-2. Скачайте код с GitHub. Установите зависимости:
+Скачайте код с GitHub. Установите зависимости:
 
 ```
 pip install -r requirements.txt
 ```
-
-
-3. Создайте базу данных SQLite
-
-```
-python3 manage.py migrate
-```
-
-
-4. Запустите сайт и перейдите по ссылке http://127.0.0.1:8000/
-
-```
-python3 manage.py runserver
-```
-
 
 ### Переменные окружения
 
@@ -38,6 +25,27 @@ python3 manage.py runserver
 - `DEBUG` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки.
 - `SECRET_KEY` — секретный ключ проекта
 - `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts)
+
+
+Создайте базу данных SQLite
+
+```
+python3 manage.py migrate
+```
+
+Подключите статику
+```
+python3 manage.py collectstatic
+```
+
+
+Запустите сайт и перейдите по ссылке http://127.0.0.1:8000/
+
+```
+python3 manage.py runserver
+```
+
+
 
 
 ## Установка новых точек
