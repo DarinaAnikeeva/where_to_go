@@ -67,7 +67,7 @@ python3 manage.py runserver
 
 
 
-# Цели проекта
+## Цели проекта
 Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org/).
 
 Тестовые данные взяты с сайта [KudaGo](https://kudago.com/).
